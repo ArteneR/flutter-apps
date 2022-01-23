@@ -6,6 +6,18 @@ class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.blue,
+            onSurface: Colors.grey, // when disabled
+            textStyle: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
@@ -50,43 +62,40 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
-              child: Text(
-                'True',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
-              ),
-              onPressed: () {
-                //The user picked true.
-              },
+            child: generateButton(
+              'True',
+              Colors.green,
+              () => answerQuestion(true),
             ),
           ),
         ),
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.red,
-              child: Text(
-                'False',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () {
-                //The user picked false.
-              },
+            child: generateButton(
+              'False',
+              Colors.red,
+              () => answerQuestion(false),
             ),
           ),
         ),
         //TODO: Add a Row here as your score keeper
       ],
     );
+  }
+
+  TextButton generateButton(String label, Color color, VoidCallback onPressed) {
+    return TextButton(
+      child: Text(label),
+      style: TextButton.styleFrom(
+        backgroundColor: color,
+      ),
+      onPressed: onPressed,
+    );
+  }
+
+  void answerQuestion(bool answer) {
+    print(answer);
   }
 }
 
