@@ -12,6 +12,7 @@ class RummyScoreApp extends StatelessWidget {
       title: 'Rummy Score',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: HomeScreen(),
       ),
     );
