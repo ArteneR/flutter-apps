@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../utils.dart';
+import '../content-box.dart';
 import 'view-game-screen.dart';
 
 class GamesHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFBFBFB),
       appBar: AppBar(
         title: const Text('Games history'),
       ),
@@ -13,18 +15,22 @@ class GamesHistoryScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const Text(
-            'Games History Screen',
-            textAlign: TextAlign.center,
-          ),
           const SizedBox(
-            height: 10.0,
+            height: 30.0,
           ),
-          ElevatedButton(
-            child: const Text('View Game'),
-            onPressed: () {
-              Utils.goToScreen(context, ViewGameScreen());
-            },
+          const Expanded(
+            child: ContentBox(
+              child: Text('Games History Screen'),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20.0),
+            child: ElevatedButton(
+              child: const Text('View Game'),
+              onPressed: () {
+                Utils.goToScreen(context, ViewGameScreen());
+              },
+            ),
           ),
         ],
       ),
