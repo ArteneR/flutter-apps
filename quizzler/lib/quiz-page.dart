@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz-brain.dart';
 
 QuizBrain quizBrain = QuizBrain();
@@ -89,7 +90,40 @@ class _QuizPageState extends State<QuizPage> {
           ),
         );
       }
-      quizBrain.nextQuestion();
+
+      if (quizBrain.isFinished()) {
+        showFinishAlert();
+      } else {
+        quizBrain.nextQuestion();
+      }
     });
+  }
+
+  void showFinishAlert() {
+    Alert(
+      context: context,
+      type: AlertType.success,
+      title: "CONGRATULATIONS",
+      desc: "You have finished the quizz!",
+      style: AlertStyle(
+        isCloseButton: false,
+      ),
+      buttons: [
+        DialogButton(
+          child: Text(
+            "Finish",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () => {
+            setState(() {
+              quizBrain.reset();
+              scoreKeeper = [];
+            }),
+            Navigator.pop(context),
+          },
+          width: 200,
+        )
+      ],
+    ).show();
   }
 }

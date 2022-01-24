@@ -17,8 +17,16 @@ class QuizBrain {
   }
 
   void nextQuestion() {
-    if (_questionNumber < _questionsBank.length - 1) {
+    if (!isFinished()) {
       _questionNumber++;
     }
+  }
+
+  bool isFinished() {
+    return _questionNumber >= _questionsBank.length - 1;
+  }
+
+  void reset() {
+    _questionNumber = 0;
   }
 }
