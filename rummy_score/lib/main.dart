@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+import 'services/db.dart';
 import 'theme.dart';
 import 'screens/home-screen.dart';
+import 'player.dart';
 
-void main() {
-  runApp(RummyScoreApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  DB db = await DB.instance;
+
+  var testPlayer = Player(2, 'Mihai3');
+
+  await db.insertPlayer(testPlayer);
+
+  print(await db.getPlayers());
+
+  // runApp(const RummyScoreApp());
 }
 
 class RummyScoreApp extends StatelessWidget {
