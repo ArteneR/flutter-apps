@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home-screen.dart';
+import 'theme.dart';
+import 'screens/home-screen.dart';
 
 void main() {
   runApp(RummyScoreApp());
@@ -11,10 +12,8 @@ class RummyScoreApp extends StatelessWidget {
     return MaterialApp(
       title: 'Rummy Score',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: HomeScreen(),
-      ),
+      theme: AppTheme().theme,
+      home: HomeScreen(),
     );
   }
 }
