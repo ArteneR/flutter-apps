@@ -1,11 +1,11 @@
-// ignore_for_file: avoid_print, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import '../utils.dart';
 import 'game-setup-screen.dart';
 import 'games-history-screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.fromLTRB(20, 40, 20, 20),
+              padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -31,22 +31,22 @@ class HomeScreen extends StatelessWidget {
                       ElevatedButton(
                         child: const Text('Start a new game'),
                         onPressed: () {
-                          Utils.goToScreen(context, GameSetupScreen());
+                          Utils.goToScreen(context, const GameSetupScreen());
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       ElevatedButton(
                         child: const Text('View games history'),
                         onPressed: () {
-                          Utils.goToScreen(context, GamesHistoryScreen());
+                          Utils.goToScreen(context, const GamesHistoryScreen());
                         },
                       ),
                     ],
                   ),
                   Column(
-                    children: <Widget>[
+                    children: const <Widget>[
                       Text('Designed & developed by ArteneR.'),
                       SizedBox(
                         height: 10.0,

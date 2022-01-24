@@ -4,6 +4,8 @@ import '../content-box.dart';
 import 'submit-score-screen.dart';
 
 class ViewGameScreen extends StatelessWidget {
+  const ViewGameScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +26,11 @@ class ViewGameScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20.0),
             child: ElevatedButton(
               child: const Text('Submit Score'),
               onPressed: () {
-                Utils.goToScreen(context, SubmitScoreScreen());
+                Utils.goToScreen(context, const SubmitScoreScreen());
               },
             ),
           ),

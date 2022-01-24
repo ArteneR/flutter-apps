@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../utils.dart';
 import '../content-box.dart';
 
 class SubmitScoreScreen extends StatelessWidget {
+  const SubmitScoreScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,11 +14,11 @@ class SubmitScoreScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          const SizedBox(
+        children: const <Widget>[
+          SizedBox(
             height: 30.0,
           ),
-          const Expanded(
+          Expanded(
             child: ContentBox(
               child: Text('Submit Score Screen'),
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorsPalette {
   static MaterialColor getPalette(String palette) {
-    var color;
+    int color;
     switch (palette) {
       case 'DARK_RED':
         color = 0xFFC12121; // #C12121

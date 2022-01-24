@@ -4,6 +4,8 @@ import '../content-box.dart';
 import 'view-game-screen.dart';
 
 class GamesHistoryScreen extends StatelessWidget {
+  const GamesHistoryScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,7 @@ class GamesHistoryScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20.0),
             child: ElevatedButton(
               child: const Text('View Game'),
               onPressed: () {
