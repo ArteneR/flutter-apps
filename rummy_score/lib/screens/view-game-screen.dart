@@ -6,6 +6,9 @@ class ViewGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Game #1'),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -13,15 +16,6 @@ class ViewGameScreen extends StatelessWidget {
           const Text(
             'View Game Screen',
             textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 10.0,
-          ),
-          ElevatedButton(
-            child: const Text('Go Back'),
-            onPressed: () {
-              Utils.goToPreviousScreen(context);
-            },
           ),
           const SizedBox(
             height: 10.0,

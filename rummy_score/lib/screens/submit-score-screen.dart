@@ -5,6 +5,9 @@ class SubmitScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Round #1 score'),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -13,15 +16,6 @@ class SubmitScoreScreen extends StatelessWidget {
             'Submit Score Screen',
             textAlign: TextAlign.center,
           ),
-          const SizedBox(
-            height: 10.0,
-          ),
-          ElevatedButton(
-            child: const Text('Go Back'),
-            onPressed: () {
-              Utils.goToPreviousScreen(context);
-            },
-          )
         ],
       ),
     );
