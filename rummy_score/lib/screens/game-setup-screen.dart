@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils.dart';
+import '../routes.dart';
 import '../content-box.dart';
 import '../player-input.dart';
 
@@ -106,7 +107,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                           _gameName.text.isNotEmpty
                       ? () {
                           // TODO: Save game and Players in DB
-                          Utils.goToScreen(context, '/view-game-screen');
+                          Utils.goToScreen(context, Routes.viewGameScreen);
                         }
                       : null,
                 );

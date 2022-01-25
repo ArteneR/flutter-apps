@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
+import './routes.dart';
 import './screens/home-screen.dart';
 import './screens/game-setup-screen.dart';
 import './screens/games-history-screen.dart';
@@ -32,15 +33,15 @@ class RummyScoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rummy Score',
-      debugShowCheckedModeBanner: false,
       theme: AppTheme().theme,
-      initialRoute: '/home-screen',
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.homeScreen,
       routes: <String, WidgetBuilder>{
-        '/home-screen': (context) => HomeScreen(),
-        '/game-setup-screen': (context) => GameSetupScreen(),
-        '/games-history-screen': (context) => GamesHistoryScreen(),
-        '/view-game-screen': (context) => ViewGameScreen(),
-        '/submit-score-screen': (context) => SubmitScoreScreen(),
+        Routes.homeScreen: (context) => HomeScreen(),
+        Routes.gameSetupScreen: (context) => GameSetupScreen(),
+        Routes.gamesHistoryScreen: (context) => GamesHistoryScreen(),
+        Routes.viewGameScreen: (context) => ViewGameScreen(),
+        Routes.submitScoreScreen: (context) => SubmitScoreScreen(),
       },
     );
   }
