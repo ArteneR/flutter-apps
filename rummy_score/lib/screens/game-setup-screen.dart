@@ -2,9 +2,29 @@ import 'package:flutter/material.dart';
 import '../utils.dart';
 import '../content-box.dart';
 import 'view-game-screen.dart';
+import '../player-input.dart';
 
-class GameSetupScreen extends StatelessWidget {
+class GameSetupScreen extends StatefulWidget {
   const GameSetupScreen({Key? key}) : super(key: key);
+
+  @override
+  State<GameSetupScreen> createState() => _GameSetupScreenState();
+}
+
+class _GameSetupScreenState extends State<GameSetupScreen> {
+  final PLAYERS_LIMIT = 4;
+  final PLAYERS_MINIMUM = 2;
+  List<PlayerInput> players = [];
+
+  TextEditingController _gameName = TextEditingController(
+    text: 'Game #1',
+  );
+
+  @override
+  void dispose() {
+    _gameName.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +40,98 @@ class GameSetupScreen extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          const Expanded(
+          Expanded(
             child: ContentBox(
-              child: Text('Game Setup Screen'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text('Game name'),
+                  TextField(
+                    controller: _gameName,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xFFF7F7F7),
+                      hintText: "Enter game name",
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 40.0,
+                  ),
+                  const Text('Players'),
+                  Visibility(
+                    visible: players.isNotEmpty,
+                    child: Column(
+                      children: players,
+                    ),
+                  ),
+                  Visibility(
+                    visible: players.isEmpty,
+                    child: const Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 40.0,
+                          horizontal: 20.0,
+                        ),
+                        child: Text(
+                          'No players have been added yet!',
+                          style: TextStyle(
+                            color: Color(0xFF9D9D9D),
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      child: const Text('Add Player'),
+                      onPressed: (players.length < PLAYERS_LIMIT)
+                          ? () {
+                              addPlayer();
+                            }
+                          : null,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
             margin: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              child: const Text('View Game'),
-              onPressed: () {
-                Utils.goToScreen(context, ViewGameScreen());
+            child: ValueListenableBuilder<TextEditingValue>(
+              valueListenable: _gameName,
+              builder: (context, value, child) {
+                return ElevatedButton(
+                  child: const Text('Start Game'),
+                  onPressed: (players.length >= PLAYERS_MINIMUM) &&
+                          _gameName.text.isNotEmpty
+                      ? () {
+                          // TODO: Save game and Players in DB
+                          Utils.goToScreen(context, ViewGameScreen());
+                        }
+                      : null,
+                );
               },
             ),
           ),
         ],
       ),
     );
+  }
+
+  void addPlayer() {
+    setState(() {
+      if (players.length < PLAYERS_LIMIT) {
+        players.add(
+          PlayerInput(onDelete: deletePlayer),
+        );
+      }
+    });
+  }
+
+  void deletePlayer(player) {
+    setState(() {
+      players.removeAt(players.indexOf(player));
+    });
   }
 }

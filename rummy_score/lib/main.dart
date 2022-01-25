@@ -8,17 +8,17 @@ import 'screens/home-screen.dart';
 import 'player.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  DB db = await DB.instance;
+  // DB db = await DB.instance;
 
-  var testPlayer = Player(2, 'Mihai3');
+  // var testPlayer = Player(2, 'Mihai3');
 
-  await db.insertPlayer(testPlayer);
+  // await db.insertPlayer(testPlayer);
 
-  print(await db.getPlayers());
+  // print(await db.getPlayers());
 
-  // runApp(const RummyScoreApp());
+  runApp(const RummyScoreApp());
 }
 
 class RummyScoreApp extends StatelessWidget {
