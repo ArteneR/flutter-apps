@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../utils.dart';
-import 'game-setup-screen.dart';
-import 'games-history-screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                       ElevatedButton(
                         child: const Text('Start a new game'),
                         onPressed: () {
-                          Utils.goToScreen(context, const GameSetupScreen());
+                          Utils.goToScreen(context, '/game-setup-screen');
                         },
                       ),
                       const SizedBox(
@@ -40,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                       ElevatedButton(
                         child: const Text('View games history'),
                         onPressed: () {
-                          Utils.goToScreen(context, const GamesHistoryScreen());
+                          Utils.goToScreen(context, '/games-history-screen');
                         },
                       ),
                     ],

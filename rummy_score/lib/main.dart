@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'services/db.dart';
-import 'theme.dart';
-import 'screens/home-screen.dart';
-import 'player.dart';
+import 'dart:async';
+import './screens/home-screen.dart';
+import './screens/game-setup-screen.dart';
+import './screens/games-history-screen.dart';
+import './screens/view-game-screen.dart';
+import './screens/submit-score-screen.dart';
+import './services/db.dart';
+import './theme.dart';
+import './player.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +34,14 @@ class RummyScoreApp extends StatelessWidget {
       title: 'Rummy Score',
       debugShowCheckedModeBanner: false,
       theme: AppTheme().theme,
-      home: const HomeScreen(),
+      initialRoute: '/home-screen',
+      routes: <String, WidgetBuilder>{
+        '/home-screen': (context) => HomeScreen(),
+        '/game-setup-screen': (context) => GameSetupScreen(),
+        '/games-history-screen': (context) => GamesHistoryScreen(),
+        '/view-game-screen': (context) => ViewGameScreen(),
+        '/submit-score-screen': (context) => SubmitScoreScreen(),
+      },
     );
   }
 }

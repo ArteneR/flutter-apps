@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils.dart';
 import '../content-box.dart';
-import 'submit-score-screen.dart';
 
 class ViewGameScreen extends StatelessWidget {
   const ViewGameScreen({Key? key}) : super(key: key);
@@ -30,7 +29,7 @@ class ViewGameScreen extends StatelessWidget {
             child: ElevatedButton(
               child: const Text('Submit Score'),
               onPressed: () {
-                Utils.goToScreen(context, const SubmitScoreScreen());
+                Utils.goToScreen(context, '/submit-score-screen');
               },
             ),
           ),

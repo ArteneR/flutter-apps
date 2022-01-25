@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils.dart';
 import '../content-box.dart';
-import 'view-game-screen.dart';
 import '../player-input.dart';
 
 class GameSetupScreen extends StatefulWidget {
@@ -107,7 +106,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                           _gameName.text.isNotEmpty
                       ? () {
                           // TODO: Save game and Players in DB
-                          Utils.goToScreen(context, ViewGameScreen());
+                          Utils.goToScreen(context, '/view-game-screen');
                         }
                       : null,
                 );
