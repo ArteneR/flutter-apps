@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -45,12 +47,31 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   Column(
-                    children: const <Widget>[
-                      Text('Designed & developed by ArteneR.'),
-                      SizedBox(
+                    children: <Widget>[
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Designed & developed by ',
+                              style: kTextStyleGreyDefaultNormal,
+                            ),
+                            TextSpan(
+                              text: kAppCreatorName,
+                              style: kTextStyleGreyDefaultBold,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap =
+                                    () => Utils.openLink(kAppCreatorWebpage),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      Text('Version: 1.0'),
+                      const Text(
+                        'Version: $kAppVersion',
+                        style: kTextStyleGreySmallNormal,
+                      ),
                     ],
                   ),
                 ],
