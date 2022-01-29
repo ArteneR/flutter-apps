@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              color: Colors.red.shade900,
+              color: kColorPrimary,
               child: const Text(''),
             ),
           ),

@@ -6,10 +6,10 @@ const kAppCreatorName = 'ArteneR';
 const kAppCreatorWebpage = 'https://artener.ro';
 
 /* Colors */
-const kColorPrimary = ''; // Dark Red
-const kColorTextPrimary = ''; // Black
-const kColorTextSecondary = ''; // White
-const kColorTextGrey = Color(0xFF9D9D9D);
+const kColorPrimary = Color(0xFFC12121); // Dark Red
+const kColorTextPrimary = Color(0xFF414141); // Black
+const kColorTextSecondary = Color(0xFFFFFFFF); // White
+const kColorTextGrey = Color(0xFF9D9D9D); // Grey
 
 /* Font Size */
 const kFontSizeSmaller = 8.0;

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:rummy_score/constants.dart';
 
 class ColorsPalette {
   static MaterialColor getPalette(String palette) {
     int color;
     switch (palette) {
       case 'DARK_RED':
-        color = 0xFFC12121; // #C12121
+        color = kColorPrimary.value;
         break;
       default:
-        color = 0xFFC12121; // #C12121
+        color = kColorPrimary.value;
     }
 
     return generatePaletteFrom(color);
