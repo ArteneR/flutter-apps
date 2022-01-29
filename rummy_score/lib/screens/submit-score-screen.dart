@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data.dart';
+import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
 class SubmitScoreScreen extends StatelessWidget {
@@ -25,12 +26,12 @@ class SubmitScoreScreen extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const Text('Submit Score Screen'),
-                  ElevatedButton(
+                  ButtonPrimaryDefault(
+                    text: 'Update test data',
                     onPressed: () {
                       Provider.of<Data>(context, listen: false)
                           .updateData('AAA');
                     },
-                    child: const Text('Update test data'),
                   ),
                 ],
               ),

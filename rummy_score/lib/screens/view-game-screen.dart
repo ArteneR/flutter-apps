@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rummy_score/data.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
 class ViewGameScreen extends StatelessWidget {
@@ -35,8 +36,8 @@ class ViewGameScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              child: const Text('Submit Score'),
+            child: ButtonPrimaryDefault(
+              text: 'Submit Score',
               onPressed: () {
                 Utils.goToScreen(context, Routes.submitScoreScreen);
               },

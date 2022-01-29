@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 import 'package:rummy_score/widgets/player-input.dart';
 
@@ -83,8 +84,8 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                     ),
                   ),
                   Center(
-                    child: ElevatedButton(
-                      child: const Text('Add Player'),
+                    child: ButtonPrimaryDefault(
+                      text: 'Add Player',
                       onPressed: (players.length < PLAYERS_LIMIT)
                           ? () {
                               addPlayer();
@@ -101,12 +102,11 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
             child: ValueListenableBuilder<TextEditingValue>(
               valueListenable: _gameName,
               builder: (context, value, child) {
-                return ElevatedButton(
-                  child: const Text('Start Game'),
+                return ButtonPrimaryDefault(
+                  text: 'Start Game',
                   onPressed: (players.length >= PLAYERS_MINIMUM) &&
                           _gameName.text.isNotEmpty
                       ? () {
-                          // TODO: Save game and Players in DB
                           Utils.goToScreen(context, Routes.viewGameScreen);
                         }
                       : null,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes.dart';
 import 'package:rummy_score/constants.dart';
+import 'package:rummy_score/widgets/button-primary-default.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -29,8 +30,8 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      ElevatedButton(
-                        child: const Text('Start a new game'),
+                      ButtonPrimaryDefault(
+                        text: 'Start a new game',
                         onPressed: () {
                           Utils.goToScreen(context, Routes.gameSetupScreen);
                         },
@@ -38,8 +39,8 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      ElevatedButton(
-                        child: const Text('View games history'),
+                      ButtonPrimaryDefault(
+                        text: 'View games history',
                         onPressed: () {
                           Utils.goToScreen(context, Routes.gamesHistoryScreen);
                         },

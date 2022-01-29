@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
 class GamesHistoryScreen extends StatelessWidget {
@@ -27,8 +28,8 @@ class GamesHistoryScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              child: const Text('View Game'),
+            child: ButtonPrimaryDefault(
+              text: 'View Game',
               onPressed: () {
                 Utils.goToScreen(context, Routes.viewGameScreen);
               },
