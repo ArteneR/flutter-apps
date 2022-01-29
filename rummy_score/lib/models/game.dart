@@ -2,9 +2,16 @@ import 'player.dart';
 import 'game-round.dart';
 
 class Game {
-  int id = 0;
-  String name = '';
+  int id = 1;
+  String name;
   DateTime date = DateTime.now();
   List<Player> players = [];
   List<GameRound> rounds = [];
+
+  Game({required this.name});
+
+  @override
+  String toString() {
+    return '{name: $name}';
+  }
 }

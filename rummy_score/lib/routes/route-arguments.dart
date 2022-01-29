@@ -1,5 +1,7 @@
-class RouteArguments {
-  int? gameId;
+import 'package:rummy_score/models/game.dart';
 
-  RouteArguments({this.gameId});
+class RouteArguments {
+  Game? game;
+
+  RouteArguments({this.game});
 }

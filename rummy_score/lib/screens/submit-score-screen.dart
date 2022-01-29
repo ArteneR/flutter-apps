@@ -4,9 +4,14 @@ import 'package:rummy_score/services/data.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
-class SubmitScoreScreen extends StatelessWidget {
+class SubmitScoreScreen extends StatefulWidget {
   const SubmitScoreScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SubmitScoreScreen> createState() => _SubmitScoreScreenState();
+}
+
+class _SubmitScoreScreenState extends State<SubmitScoreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

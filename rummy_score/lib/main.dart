@@ -46,7 +46,7 @@ class RummyScoreApp extends StatelessWidget {
           Routes.homeScreen: (context) => const HomeScreen(),
           Routes.gameSetupScreen: (context) => const GameSetupScreen(),
           Routes.gamesHistoryScreen: (context) => const GamesHistoryScreen(),
-          Routes.viewGameScreen: (context) => const ViewGameScreen(),
+          // Routes.viewGameScreen: (context) => const ViewGameScreen(),
           Routes.submitScoreScreen: (context) => const SubmitScoreScreen(),
         },
       ),
