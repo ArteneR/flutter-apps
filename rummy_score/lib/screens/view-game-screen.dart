@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../utils.dart';
-import '../routes.dart';
-import '../content-box.dart';
+import 'package:provider/provider.dart';
+import 'package:rummy_score/data.dart';
+import 'package:rummy_score/services/utils.dart';
+import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/widgets/content-box.dart';
 
 class ViewGameScreen extends StatelessWidget {
   const ViewGameScreen({Key? key}) : super(key: key);
@@ -20,9 +22,15 @@ class ViewGameScreen extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          const Expanded(
+          Expanded(
             child: ContentBox(
-              child: Text('View Game Screen'),
+              child: Column(
+                children: <Widget>[
+                  const Text('View Game Screen'),
+                  Text('TEST data: ' +
+                      Provider.of<Data>(context).data['test'].toString()),
+                ],
+              ),
             ),
           ),
           Container(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../content-box.dart';
+import 'package:provider/provider.dart';
+import 'package:rummy_score/data.dart';
+import 'package:rummy_score/widgets/content-box.dart';
 
 class SubmitScoreScreen extends StatelessWidget {
   const SubmitScoreScreen({Key? key}) : super(key: key);
@@ -14,16 +16,27 @@ class SubmitScoreScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const <Widget>[
-          SizedBox(
+        children: <Widget>[
+          const SizedBox(
             height: 30.0,
           ),
           Expanded(
             child: ContentBox(
-              child: Text('Submit Score Screen'),
+              child: Column(
+                children: <Widget>[
+                  const Text('Submit Score Screen'),
+                  ElevatedButton(
+                    onPressed: () {
+                      Provider.of<Data>(context, listen: false)
+                          .updateData('AAA');
+                    },
+                    child: const Text('Update test data'),
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30.0,
           ),
         ],

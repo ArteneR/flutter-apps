@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../player.dart';
+import 'package:rummy_score/models/player.dart';
 
 class DB {
   DB._privateConstructor();

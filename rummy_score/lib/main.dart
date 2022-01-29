@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
-import './routes.dart';
-import './screens/home-screen.dart';
-import './screens/game-setup-screen.dart';
-import './screens/games-history-screen.dart';
-import './screens/view-game-screen.dart';
-import './screens/submit-score-screen.dart';
-import './services/db.dart';
-import './theme.dart';
-import './player.dart';
+import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/screens/home-screen.dart';
+import 'package:rummy_score/screens/game-setup-screen.dart';
+import 'package:rummy_score/screens/games-history-screen.dart';
+import 'package:rummy_score/screens/view-game-screen.dart';
+import 'package:rummy_score/screens/submit-score-screen.dart';
+import 'package:rummy_score/services/db.dart';
+import 'package:rummy_score/theme/theme.dart';
+import 'package:rummy_score/models/player.dart';
+import 'package:rummy_score/data.dart';
+
+const appTitle = 'Rummy Score';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -31,18 +35,21 @@ class RummyScoreApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Rummy Score',
-      theme: AppTheme().theme,
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.homeScreen,
-      routes: <String, WidgetBuilder>{
-        Routes.homeScreen: (context) => HomeScreen(),
-        Routes.gameSetupScreen: (context) => GameSetupScreen(),
-        Routes.gamesHistoryScreen: (context) => GamesHistoryScreen(),
-        Routes.viewGameScreen: (context) => ViewGameScreen(),
-        Routes.submitScoreScreen: (context) => SubmitScoreScreen(),
-      },
+    return ChangeNotifierProvider<Data>(
+      create: (context) => Data(),
+      child: MaterialApp(
+        title: appTitle,
+        theme: AppTheme().theme,
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.homeScreen,
+        routes: <String, WidgetBuilder>{
+          Routes.homeScreen: (context) => const HomeScreen(),
+          Routes.gameSetupScreen: (context) => const GameSetupScreen(),
+          Routes.gamesHistoryScreen: (context) => const GamesHistoryScreen(),
+          Routes.viewGameScreen: (context) => const ViewGameScreen(),
+          Routes.submitScoreScreen: (context) => const SubmitScoreScreen(),
+        },
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../utils.dart';
-import '../routes.dart';
-import '../content-box.dart';
-import '../player-input.dart';
+import 'package:rummy_score/services/utils.dart';
+import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/widgets/content-box.dart';
+import 'package:rummy_score/widgets/player-input.dart';
 
 class GameSetupScreen extends StatefulWidget {
   const GameSetupScreen({Key? key}) : super(key: key);

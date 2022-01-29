@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../utils.dart';
-import '../routes.dart';
+import 'package:rummy_score/services/utils.dart';
+import 'package:rummy_score/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

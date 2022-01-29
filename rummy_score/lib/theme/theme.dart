@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'colors-palette.dart';
+import 'package:rummy_score/theme/colors-palette.dart';
 
 class AppTheme {
   ThemeData get theme => ThemeData(
