@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
-import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/screens/home-screen.dart';
 import 'package:rummy_score/screens/game-setup-screen.dart';
 import 'package:rummy_score/screens/games-history-screen.dart';
@@ -12,7 +12,7 @@ import 'package:rummy_score/screens/submit-score-screen.dart';
 import 'package:rummy_score/services/db.dart';
 import 'package:rummy_score/theme/theme.dart';
 import 'package:rummy_score/models/player.dart';
-import 'package:rummy_score/data.dart';
+import 'package:rummy_score/services/data.dart';
 
 const appTitle = 'Rummy Score';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rummy_score/routes/route-arguments.dart';
 import 'package:rummy_score/services/utils.dart';
-import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 import 'package:rummy_score/widgets/player-input.dart';
@@ -107,7 +108,9 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                   onPressed: (players.length >= PLAYERS_MINIMUM) &&
                           _gameName.text.isNotEmpty
                       ? () {
-                          Utils.goToScreen(context, Routes.viewGameScreen);
+                          // Create the game - return game id
+                          Utils.goToScreen(context, Routes.viewGameScreen,
+                              arguments: RouteArguments(gameId: 12));
                         }
                       : null,
                 );

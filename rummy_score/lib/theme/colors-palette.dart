@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rummy_score/constants.dart';
+import 'package:rummy_score/services/constants.dart';
 
 class ColorsPalette {
   static MaterialColor getPalette(String palette) {

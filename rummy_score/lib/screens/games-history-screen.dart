@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
-import 'package:rummy_score/routes.dart';
+import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 

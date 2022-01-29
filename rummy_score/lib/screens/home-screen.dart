@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:rummy_score/services/utils.dart';
-import 'package:rummy_score/routes.dart';
-import 'package:rummy_score/constants.dart';
+import 'package:rummy_score/routes/routes.dart';
+import 'package:rummy_score/services/constants.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 
 class HomeScreen extends StatelessWidget {
