@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:rummy_score/models/player.dart';
 
 class PlayersData extends ChangeNotifier {
-  late List<Player> _players = [];
+  late List<Player> _players = [
+    Player(name: 'Mihai'),
+    Player(name: 'Andrei'),
+  ];
 
   List<Player> get players {
     return _players;

@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/services/constants.dart';
 import 'package:rummy_score/routes/routes.dart';
-import 'package:rummy_score/screens/home-screen.dart';
-import 'package:rummy_score/screens/game-setup-screen.dart';
-import 'package:rummy_score/screens/games-history-screen.dart';
-import 'package:rummy_score/screens/view-game-screen.dart';
-import 'package:rummy_score/screens/submit-score-screen.dart';
-import 'package:rummy_score/screens/add-player-screen.dart';
+import 'package:rummy_score/screens/home-screen/home-screen.dart';
+import 'package:rummy_score/screens/game-setup-screen/game-setup-screen.dart';
+import 'package:rummy_score/screens/games-history-screen/games-history-screen.dart';
+import 'package:rummy_score/screens/view-game-screen/view-game-screen.dart';
+import 'package:rummy_score/screens/submit-score-screen/submit-score-screen.dart';
+import 'package:rummy_score/screens/add-player-screen/add-player-screen.dart';
 import 'package:rummy_score/theme/theme.dart';
 import 'package:rummy_score/data/games-data.dart';
 

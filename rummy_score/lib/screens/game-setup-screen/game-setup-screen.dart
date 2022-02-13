@@ -5,7 +5,7 @@ import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/models/player.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
-import 'package:rummy_score/widgets/game-players-setup.dart';
+import 'package:rummy_score/screens/game-setup-screen/widgets/game-players-setup.dart';
 import 'package:rummy_score/services/constants.dart';
 
 class GameSetupScreen extends StatelessWidget {

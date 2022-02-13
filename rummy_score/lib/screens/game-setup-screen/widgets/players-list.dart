@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
-import 'package:rummy_score/widgets/existing-player-tile.dart';
-import 'package:rummy_score/widgets/player-tile.dart';
+import 'package:rummy_score/screens/game-setup-screen/widgets/player-tile.dart';
 
-class ExistingPlayersList extends StatelessWidget {
-  const ExistingPlayersList({Key? key}) : super(key: key);
+class PlayersList extends StatelessWidget {
+  const PlayersList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +16,14 @@ class ExistingPlayersList extends StatelessWidget {
           itemBuilder: (context, index) {
             final player = playersData.players[index];
 
-            return ExistingPlayerTile(
+            return PlayerTile(
               playerName: player.name,
-              selectCallback: () {
-                print('Selected player: $player');
-                // TODO: add selected player to the game
+              deleteCallback: () {
+                playersData.removePlayer(player);
               },
             );
           },
           itemCount: playersData.playersCount,
-          // TODO: exclude already added game players
         );
       },
     );

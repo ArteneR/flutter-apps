@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                         text: 'Start a new game',
                         onPressed: () {
                           Provider.of<GamesData>(context, listen: false)
-                              .addGame(name: 'New Game', players: <Player>[]);
+                              .addGame(name: 'New Game');
                           Utils.goToScreen(context, Routes.gameSetupScreen);
                         },
                       ),

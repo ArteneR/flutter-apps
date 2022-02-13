@@ -20,8 +20,8 @@ class GamesData extends ChangeNotifier {
     return index >= 0 ? _games[index] : null;
   }
 
-  void addGame({name, players}) {
-    final game = Game(name: name, players: players);
+  void addGame({name}) {
+    final game = Game(name: name);
     _games.add(game);
     currentGame = game;
     notifyListeners();

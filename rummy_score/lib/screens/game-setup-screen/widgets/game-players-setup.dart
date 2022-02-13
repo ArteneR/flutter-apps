@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
-import 'package:rummy_score/screens/add-player-screen.dart';
+import 'package:rummy_score/screens/add-player-screen/add-player-screen.dart';
 import 'package:rummy_score/services/constants.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
-import 'package:rummy_score/widgets/players-list-empty.dart';
-import 'package:rummy_score/widgets/players-list.dart';
+import 'package:rummy_score/screens/game-setup-screen/widgets/players-list-empty.dart';
+import 'package:rummy_score/screens/game-setup-screen/widgets/players-list.dart';
 
 class GamePlayersSetup extends StatelessWidget {
   const GamePlayersSetup({Key? key}) : super(key: key);

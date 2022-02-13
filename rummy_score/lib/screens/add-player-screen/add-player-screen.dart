@@ -4,7 +4,7 @@ import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/models/player.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
-import 'package:rummy_score/widgets/existing-players-list.dart';
+import 'package:rummy_score/screens/add-player-screen/widgets/existing-players-list.dart';
 
 class AddPlayerScreen extends StatelessWidget {
   String playerName = '';
@@ -46,14 +46,20 @@ class AddPlayerScreen extends StatelessWidget {
                 Provider.of<PlayersData>(context, listen: false)
                     .addPlayer(playerName);
                 Player? addedPlayer =
-                    Provider.of<PlayersData>(context).getLatestPlayer();
-                Provider.of<GamesData>(context).addPlayer(addedPlayer);
-                print(Provider.of<GamesData>(context).currentGame);
+                    Provider.of<PlayersData>(context, listen: false)
+                        .getLatestPlayer();
+                Provider.of<GamesData>(context, listen: false)
+                    .addPlayer(addedPlayer);
+                print(
+                    Provider.of<GamesData>(context, listen: false).currentGame);
                 Navigator.pop(context);
               },
             ),
             Visibility(
-              visible: Provider.of<PlayersData>(context).players.isNotEmpty,
+              visible: Provider.of<GamesData>(context)
+                  .currentGame!
+                  .players
+                  .isNotEmpty,
               // TODO: visible -> AND not one of the already added players to the game
               child: Column(
                 children: const <Widget>[

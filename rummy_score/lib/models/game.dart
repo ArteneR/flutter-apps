@@ -5,10 +5,14 @@ class Game {
   int id = 1;
   String name;
   DateTime date = DateTime.now();
-  List<Player> players = [];
+  List<Player> _players = [];
   List<GameRound> rounds = [];
 
-  Game({required this.name, required this.players});
+  Game({required this.name});
+
+  List<Player> get players {
+    return _players;
+  }
 
   @override
   String toString() {
