@@ -11,40 +11,48 @@ import 'package:rummy_score/widgets/content-box.dart';
 class ViewGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFBFBFB),
-      appBar: AppBar(
-        title: Text('Game name'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          const SizedBox(
-            height: 30.0,
-          ),
-          Expanded(
-            child: ContentBox(
-              child: Column(
-                children: <Widget>[
-                  const Text('View Game Screen'),
-                  // Text('TEST data: ' +
-                  //     Provider.of<Data>(context).data['test'].toString()),
-                ],
+    return Consumer<GamesData>(
+      builder: (context, gamesData, child) {
+        return Scaffold(
+          backgroundColor: const Color(0xFFFBFBFB),
+          appBar: AppBar(
+            title: Text(gamesData.currentGame!.name),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.edit),
               ),
-            ),
+            ],
           ),
-          Container(
-            margin: const EdgeInsets.all(20.0),
-            child: ButtonPrimaryDefault(
-              text: 'Submit Score',
-              onPressed: () {
-                Utils.goToScreen(context, Routes.submitScoreScreen);
-              },
-            ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const SizedBox(
+                height: 30.0,
+              ),
+              Expanded(
+                child: ContentBox(
+                  child: Column(
+                    children: <Widget>[
+                      const Text('View Game Screen'),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(20.0),
+                child: ButtonPrimaryDefault(
+                  text: 'Submit Score',
+                  onPressed: () {
+                    Utils.goToScreen(context, Routes.submitScoreScreen);
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
