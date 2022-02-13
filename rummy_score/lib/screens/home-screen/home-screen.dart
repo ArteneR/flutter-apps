@@ -7,6 +7,7 @@ import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/services/constants.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
+import 'package:rummy_score/widgets/button-secondary-default.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      ButtonPrimaryDefault(
+                      ButtonSecondaryDefault(
                         text: 'View games history',
                         onPressed: () {
                           Utils.goToScreen(context, Routes.gamesHistoryScreen);

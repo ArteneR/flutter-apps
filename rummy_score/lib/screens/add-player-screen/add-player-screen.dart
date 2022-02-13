@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/models/player.dart';
-import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/screens/add-player-screen/widgets/existing-players-list.dart';
+import 'package:rummy_score/widgets/button-primary-small.dart';
 
 class AddPlayerScreen extends StatelessWidget {
   String playerName = '';
@@ -47,7 +47,7 @@ class AddPlayerScreen extends StatelessWidget {
                     playerName = newPlayerName;
                   },
                 ),
-                ButtonPrimaryDefault(
+                ButtonPrimarySmall(
                   text: 'Add Player',
                   onPressed: () {
                     playersData.addPlayer(playerName);

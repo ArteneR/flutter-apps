@@ -7,6 +7,7 @@ import 'package:rummy_score/services/constants.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/screens/game-setup-screen/widgets/players-list-empty.dart';
 import 'package:rummy_score/screens/game-setup-screen/widgets/players-list.dart';
+import 'package:rummy_score/widgets/button-primary-small.dart';
 
 class GamePlayersSetup extends StatelessWidget {
   const GamePlayersSetup({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class GamePlayersSetup extends StatelessWidget {
               child: const PlayersListEmpty(),
             ),
             Center(
-              child: ButtonPrimaryDefault(
+              child: ButtonPrimarySmall(
                 text: 'Add Player',
                 onPressed: (gamesData.currentGame!.players.length <
                         kPlayersLimit)
