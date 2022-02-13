@@ -5,7 +5,7 @@ class Game {
   int id = 1;
   String name;
   DateTime date = DateTime.now();
-  List<Player> players;
+  List<Player> players = [];
   List<GameRound> rounds = [];
 
   Game({required this.name, required this.players});

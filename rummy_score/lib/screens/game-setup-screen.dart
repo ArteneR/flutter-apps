@@ -2,33 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
+import 'package:rummy_score/models/player.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 import 'package:rummy_score/widgets/game-players-setup.dart';
+import 'package:rummy_score/services/constants.dart';
 
-class GameSetupScreen extends StatefulWidget {
-  const GameSetupScreen({Key? key}) : super(key: key);
-
-  @override
-  State<GameSetupScreen> createState() => _GameSetupScreenState();
-}
-
-class _GameSetupScreenState extends State<GameSetupScreen> {
-  final PLAYERS_LIMIT = 4;
-  final PLAYERS_MINIMUM = 2;
-
-  TextEditingController _gameName = TextEditingController(
-    text: 'Game #1',
-  );
+class GameSetupScreen extends StatelessWidget {
+  late TextEditingController _gameName;
 
   @override
   void dispose() {
     _gameName.dispose();
-    super.dispose();
+    // super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    _gameName = TextEditingController(
+      text: Provider.of<GamesData>(context).currentGame?.name ?? '',
+    );
+
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFB),
       appBar: AppBar(
@@ -72,7 +66,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                 return ButtonPrimaryDefault(
                   text: 'Start Game',
                   onPressed: (Provider.of<PlayersData>(context).playersCount >=
-                              PLAYERS_MINIMUM) &&
+                              kPlayersMinimum) &&
                           _gameName.text.isNotEmpty
                       ? () => startGame()
                       : null,
@@ -85,7 +79,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
     );
   }
 
-  void startGame() async {
+  void startGame() {
     // Game game = await Provider.of<Data>(context, listen: false)
     //     .createGame(name: _gameName.text);
     // Utils.goToScreen(context, Routes.viewGameScreen,

@@ -5,6 +5,10 @@ const kAppVersion = '1.0';
 const kAppCreatorName = 'ArteneR';
 const kAppCreatorWebpage = 'https://artener.ro';
 
+/* Players */
+const kPlayersLimit = 4;
+const kPlayersMinimum = 2;
+
 /* Colors */
 const kColorPrimary = Color(0xFFC12121); // Dark Red
 const kColorTextPrimary = Color(0xFF414141); // Black

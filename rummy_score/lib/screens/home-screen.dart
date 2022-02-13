@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/models/player.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/services/constants.dart';
@@ -33,6 +36,8 @@ class HomeScreen extends StatelessWidget {
                       ButtonPrimaryDefault(
                         text: 'Start a new game',
                         onPressed: () {
+                          Provider.of<GamesData>(context, listen: false)
+                              .addGame(name: 'New Game', players: <Player>[]);
                           Utils.goToScreen(context, Routes.gameSetupScreen);
                         },
                       ),

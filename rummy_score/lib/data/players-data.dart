@@ -17,6 +17,11 @@ class PlayersData extends ChangeNotifier {
     return index >= 0 ? _players[index] : null;
   }
 
+  Player? getLatestPlayer() {
+    final index = _players.length - 1;
+    return index >= 0 ? _players[index] : null;
+  }
+
   void addPlayer(name) {
     final player = Player(name: name);
     _players.add(player);
