@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:path/path.dart';
+import 'package:rummy_score/data/players-data.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'package:rummy_score/routes/routes.dart';
@@ -13,7 +14,7 @@ import 'package:rummy_score/screens/add-player-screen.dart';
 import 'package:rummy_score/services/db.dart';
 import 'package:rummy_score/theme/theme.dart';
 import 'package:rummy_score/models/player.dart';
-import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/data/games-data.dart';
 
 const appTitle = 'Rummy Score';
 
@@ -38,7 +39,8 @@ class RummyScoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<Data>(create: (context) => Data()),
+        ChangeNotifierProvider<GamesData>(create: (context) => GamesData()),
+        ChangeNotifierProvider<PlayersData>(create: (context) => PlayersData()),
       ],
       child: MaterialApp(
         title: appTitle,

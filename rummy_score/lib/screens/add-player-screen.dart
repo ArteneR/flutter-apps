@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 
 class AddPlayerScreen extends StatelessWidget {
@@ -40,7 +41,8 @@ class AddPlayerScreen extends StatelessWidget {
             ButtonPrimaryDefault(
               text: 'Add Player',
               onPressed: () {
-                Provider.of<Data>(context, listen: false).addPlayer(playerName);
+                Provider.of<PlayersData>(context, listen: false)
+                    .addPlayer(playerName);
                 Navigator.pop(context);
               },
             ),

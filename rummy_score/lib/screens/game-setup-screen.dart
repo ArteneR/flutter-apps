@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 import 'package:rummy_score/widgets/game-players-setup.dart';
@@ -70,7 +71,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
               builder: (context, value, child) {
                 return ButtonPrimaryDefault(
                   text: 'Start Game',
-                  onPressed: (Provider.of<Data>(context).playersCount >=
+                  onPressed: (Provider.of<PlayersData>(context).playersCount >=
                               PLAYERS_MINIMUM) &&
                           _gameName.text.isNotEmpty
                       ? () => startGame()

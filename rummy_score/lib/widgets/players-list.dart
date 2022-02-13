@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/widgets/player-tile.dart';
 
 class PlayersList extends StatelessWidget {
@@ -8,21 +9,21 @@ class PlayersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Data>(
-      builder: (context, data, child) {
+    return Consumer<PlayersData>(
+      builder: (context, playersData, child) {
         return ListView.builder(
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            final player = data.players[index];
+            final player = playersData.players[index];
 
             return PlayerTile(
               playerName: player.name,
               deleteCallback: () {
-                data.removePlayer(player);
+                playersData.removePlayer(player);
               },
             );
           },
-          itemCount: data.playersCount,
+          itemCount: playersData.playersCount,
         );
       },
     );

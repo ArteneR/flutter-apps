@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/screens/add-player-screen.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/players-list-empty.dart';
@@ -14,11 +15,11 @@ class GamePlayersSetup extends StatelessWidget {
     return Column(
       children: <Widget>[
         Visibility(
-          visible: Provider.of<Data>(context).players.isNotEmpty,
+          visible: Provider.of<PlayersData>(context).players.isNotEmpty,
           child: const PlayersList(),
         ),
         Visibility(
-          visible: Provider.of<Data>(context).players.isEmpty,
+          visible: Provider.of<PlayersData>(context).players.isEmpty,
           child: const PlayersListEmpty(),
         ),
         Center(
