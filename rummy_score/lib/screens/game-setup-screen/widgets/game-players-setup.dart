@@ -13,40 +13,42 @@ class GamePlayersSetup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Visibility(
-          visible: Provider.of<PlayersData>(context).players.isNotEmpty,
-          child: const PlayersList(),
-        ),
-        Visibility(
-          visible: Provider.of<PlayersData>(context).players.isEmpty,
-          child: const PlayersListEmpty(),
-        ),
-        Center(
-          child: ButtonPrimaryDefault(
-            text: 'Add Player',
-            onPressed: (Provider.of<GamesData>(context)
-                        .currentGame!
-                        .players
-                        .length <
-                    kPlayersLimit)
-                ? () => showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => SingleChildScrollView(
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom,
+    return Consumer2<PlayersData, GamesData>(
+      builder: (context, playersData, gamesData, child) {
+        return Column(
+          children: <Widget>[
+            Visibility(
+              visible: playersData.players.isNotEmpty,
+              child: const PlayersList(),
+            ),
+            Visibility(
+              visible: playersData.players.isEmpty,
+              child: const PlayersListEmpty(),
+            ),
+            Center(
+              child: ButtonPrimaryDefault(
+                text: 'Add Player',
+                onPressed: (gamesData.currentGame!.players.length <
+                        kPlayersLimit)
+                    ? () => showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) => SingleChildScrollView(
+                            child: Container(
+                              padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom,
+                              ),
+                              child: AddPlayerScreen(),
+                            ),
                           ),
-                          child: AddPlayerScreen(),
-                        ),
-                      ),
-                    )
-                : null,
-          ),
-        ),
-      ],
+                        )
+                    : null,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

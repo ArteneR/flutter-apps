@@ -53,7 +53,6 @@ class AddPlayerScreen extends StatelessWidget {
                     playersData.addPlayer(playerName);
                     Player? addedPlayer = playersData.getLatestPlayer();
                     gamesData.addPlayer(addedPlayer);
-                    print(gamesData.currentGame);
                     Navigator.pop(context);
                   },
                 ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class PlayerTile extends StatelessWidget {
   final String playerName;
-  // final ValueChanged<bool?> checkboxCallback;
   final void Function() deleteCallback;
 
   const PlayerTile({

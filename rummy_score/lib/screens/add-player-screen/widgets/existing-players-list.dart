@@ -25,11 +25,7 @@ class ExistingPlayersList extends StatelessWidget {
             return ExistingPlayerTile(
               playerName: player.name,
               selectCallback: () {
-                print('Selected player: $player');
-                Provider.of<GamesData>(context, listen: false)
-                    .addPlayer(player);
-                print(
-                    Provider.of<GamesData>(context, listen: false).currentGame);
+                gamesData.addPlayer(player);
                 Navigator.pop(context);
               },
             );
