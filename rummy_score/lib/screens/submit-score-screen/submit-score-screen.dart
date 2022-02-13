@@ -20,30 +20,29 @@ class _SubmitScoreScreenState extends State<SubmitScoreScreen> {
         title: const Text('Round #1 score'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           const SizedBox(
             height: 30.0,
           ),
-          Expanded(
-            child: ContentBox(
-              child: Column(
-                children: <Widget>[
-                  const Text('Submit Score Screen'),
-                  ButtonPrimaryDefault(
-                    text: 'Update test data',
-                    onPressed: () {
-                      // Provider.of<Data>(context, listen: false)
-                      //     .updateData('AAA');
-                    },
-                  ),
-                ],
-              ),
+          const Text('Enter the score for Round #1'),
+          ContentBox(
+            child: Column(
+              children: const <Widget>[
+                Text('Submit Score Screen'),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 30.0,
+          Container(
+            margin: const EdgeInsets.all(20.0),
+            child: ButtonPrimaryDefault(
+              text: 'Submit score',
+              onPressed: () {
+                // Provider.of<Data>(context, listen: false)
+                //     .updateData('AAA');
+              },
+            ),
           ),
         ],
       ),
