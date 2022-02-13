@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
+import 'package:rummy_score/screens/games-history-screen/widgets/games-list-empty.dart';
+import 'package:rummy_score/screens/games-history-screen/widgets/games-list.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
@@ -23,9 +25,28 @@ class GamesHistoryScreen extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          const Expanded(
+          Expanded(
             child: ContentBox(
-              child: Text('Games History Screen'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text('# Game name'),
+                  Consumer<GamesData>(builder: (context, gamesData, child) {
+                    return Column(
+                      children: [
+                        Visibility(
+                          visible: gamesData.games.isNotEmpty,
+                          child: const GamesList(),
+                        ),
+                        Visibility(
+                          visible: gamesData.games.isEmpty,
+                          child: const GamesListEmpty(),
+                        ),
+                      ],
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
           Container(
