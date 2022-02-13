@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
+import 'package:rummy_score/widgets/existing-players-list.dart';
 
 class AddPlayerScreen extends StatelessWidget {
   String playerName = '';
@@ -43,17 +44,27 @@ class AddPlayerScreen extends StatelessWidget {
               onPressed: () {
                 Provider.of<PlayersData>(context, listen: false)
                     .addPlayer(playerName);
+                // TODO: add selected player to the game
                 Navigator.pop(context);
               },
             ),
-            const SizedBox(
-              height: 30.0,
+            Visibility(
+              visible: Provider.of<PlayersData>(context).players.isNotEmpty,
+              // TODO: visible -> AND not one of the already added players to the game
+              child: Column(
+                children: const <Widget>[
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  Text('or'),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  Text('Choose an existing player'),
+                  ExistingPlayersList(),
+                ],
+              ),
             ),
-            const Text('or'),
-            const SizedBox(
-              height: 30.0,
-            ),
-            const Text('Choose an existing player'),
           ],
         ),
       ),
