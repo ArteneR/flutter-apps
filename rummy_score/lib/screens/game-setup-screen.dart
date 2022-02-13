@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/models/game.dart';
 import 'package:rummy_score/routes/route-arguments.dart';
-import 'package:rummy_score/services/data.dart';
+import 'package:rummy_score/models/data.dart';
+import 'package:rummy_score/screens/add-player-screen.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 import 'package:rummy_score/widgets/player-input.dart';
-
-import '../services/data.dart';
 
 class GameSetupScreen extends StatefulWidget {
   const GameSetupScreen({Key? key}) : super(key: key);
@@ -92,11 +91,18 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                   Center(
                     child: ButtonPrimaryDefault(
                       text: 'Add Player',
-                      onPressed: (players.length < PLAYERS_LIMIT)
-                          ? () {
-                              addPlayer();
-                            }
-                          : null,
+                      onPressed: () => showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => SingleChildScrollView(
+                          child: Container(
+                            padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).viewInsets.bottom,
+                            ),
+                            child: AddPlayerScreen(),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -124,6 +130,8 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
   }
 
   void addPlayer() {
+    if (players.length < PLAYERS_LIMIT) {}
+
     setState(() {
       if (players.length < PLAYERS_LIMIT) {
         players.add(
@@ -140,9 +148,9 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
   }
 
   void startGame() async {
-    Game game = await Provider.of<Data>(context, listen: false)
-        .createGame(name: _gameName.text);
-    Utils.goToScreen(context, Routes.viewGameScreen,
-        arguments: RouteArguments(game: game));
+    // Game game = await Provider.of<Data>(context, listen: false)
+    //     .createGame(name: _gameName.text);
+    // Utils.goToScreen(context, Routes.viewGameScreen,
+    //     arguments: RouteArguments(game: game));
   }
 }

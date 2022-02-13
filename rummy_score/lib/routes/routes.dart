@@ -4,4 +4,5 @@ class Routes {
   static String gamesHistoryScreen = '/games-history-screen';
   static String viewGameScreen = '/view-game-screen';
   static String submitScoreScreen = '/submit-score-screen';
+  static String addPlayerScreen = '/add-player-screen';
 }

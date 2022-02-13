@@ -1,8 +1,8 @@
 class Player {
-  int id = 0;
+  int id = 1;
   String name;
 
-  Player(this.id, this.name);
+  Player({required this.name});
 
   Map<String, dynamic> toMap() {
     return {

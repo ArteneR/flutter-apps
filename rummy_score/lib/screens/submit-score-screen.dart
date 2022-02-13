@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/services/data.dart';
+import 'package:rummy_score/models/data.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
@@ -34,8 +34,8 @@ class _SubmitScoreScreenState extends State<SubmitScoreScreen> {
                   ButtonPrimaryDefault(
                     text: 'Update test data',
                     onPressed: () {
-                      Provider.of<Data>(context, listen: false)
-                          .updateData('AAA');
+                      // Provider.of<Data>(context, listen: false)
+                      //     .updateData('AAA');
                     },
                   ),
                 ],

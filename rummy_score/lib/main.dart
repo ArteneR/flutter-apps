@@ -9,10 +9,11 @@ import 'package:rummy_score/screens/game-setup-screen.dart';
 import 'package:rummy_score/screens/games-history-screen.dart';
 import 'package:rummy_score/screens/view-game-screen.dart';
 import 'package:rummy_score/screens/submit-score-screen.dart';
+import 'package:rummy_score/screens/add-player-screen.dart';
 import 'package:rummy_score/services/db.dart';
 import 'package:rummy_score/theme/theme.dart';
 import 'package:rummy_score/models/player.dart';
-import 'package:rummy_score/services/data.dart';
+import 'package:rummy_score/models/data.dart';
 
 const appTitle = 'Rummy Score';
 
@@ -48,6 +49,7 @@ class RummyScoreApp extends StatelessWidget {
           Routes.gamesHistoryScreen: (context) => const GamesHistoryScreen(),
           // Routes.viewGameScreen: (context) => const ViewGameScreen(),
           Routes.submitScoreScreen: (context) => const SubmitScoreScreen(),
+          Routes.addPlayerScreen: (context) => AddPlayerScreen(),
         },
       ),
     );
