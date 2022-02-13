@@ -36,8 +36,10 @@ class RummyScoreApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Data>(
-      create: (context) => Data(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Data>(create: (context) => Data()),
+      ],
       child: MaterialApp(
         title: appTitle,
         theme: AppTheme().theme,

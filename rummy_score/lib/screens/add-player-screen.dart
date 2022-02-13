@@ -22,8 +22,8 @@ class AddPlayerScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Add Player'),
-            SizedBox(
+            const Text('Add Player'),
+            const SizedBox(
               height: 30.0,
             ),
             const Text('New player name'),
@@ -44,11 +44,11 @@ class AddPlayerScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             const Text('or'),
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             const Text('Choose an existing player'),
