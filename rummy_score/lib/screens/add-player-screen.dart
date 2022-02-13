@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/data/players-data.dart';
+import 'package:rummy_score/models/player.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/existing-players-list.dart';
 
@@ -44,7 +45,10 @@ class AddPlayerScreen extends StatelessWidget {
               onPressed: () {
                 Provider.of<PlayersData>(context, listen: false)
                     .addPlayer(playerName);
-                // TODO: add selected player to the game
+                Player? addedPlayer =
+                    Provider.of<PlayersData>(context).getLatestPlayer();
+                Provider.of<GamesData>(context).addPlayer(addedPlayer);
+                print(Provider.of<GamesData>(context).currentGame);
                 Navigator.pop(context);
               },
             ),

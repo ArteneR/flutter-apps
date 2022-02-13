@@ -8,22 +8,13 @@ import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
 
-class ViewGameScreen extends StatefulWidget {
-  final Game game;
-
-  const ViewGameScreen({Key? key, required this.game}) : super(key: key);
-
-  @override
-  State<ViewGameScreen> createState() => _ViewGameScreenState();
-}
-
-class _ViewGameScreenState extends State<ViewGameScreen> {
+class ViewGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFB),
       appBar: AppBar(
-        title: Text(widget.game.name),
+        title: Text('Game name'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

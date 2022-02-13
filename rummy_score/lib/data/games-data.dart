@@ -26,4 +26,12 @@ class GamesData extends ChangeNotifier {
     currentGame = game;
     notifyListeners();
   }
+
+  void addPlayer(Player? player) {
+    if (player != null) {
+      final index = _games.indexWhere((game) => game.id == currentGame?.id);
+      _games[index].addPlayer(player);
+      notifyListeners();
+    }
+  }
 }

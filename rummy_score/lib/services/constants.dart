@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 /* App information */
+const kAppTitle = 'Rummy Score';
 const kAppVersion = '1.0';
 const kAppCreatorName = 'ArteneR';
 const kAppCreatorWebpage = 'https://artener.ro';

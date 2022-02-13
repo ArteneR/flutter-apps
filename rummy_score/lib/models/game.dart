@@ -14,4 +14,8 @@ class Game {
   String toString() {
     return '{id: $id, name: $name, playersCount: ${players.length}}';
   }
+
+  void addPlayer(Player player) {
+    players.add(player);
+  }
 }
