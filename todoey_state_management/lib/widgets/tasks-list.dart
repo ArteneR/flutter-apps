@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoey_state_management/models/task.dart';
 import 'package:todoey_state_management/widgets/task-tile.dart';
 import 'package:todoey_state_management/models/task-data.dart';
 
 class TasksList extends StatelessWidget {
+  const TasksList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(

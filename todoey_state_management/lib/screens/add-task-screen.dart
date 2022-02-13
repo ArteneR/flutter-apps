@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey_state_management/models/task-data.dart';
-import 'package:todoey_state_management/models/task.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     String newTaskTitle = '';
 
     return Container(
-      color: Color(0xff757575),
+      color: const Color(0xff757575),
       child: Container(
-        padding: EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20.0),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -22,7 +23,7 @@ class AddTaskScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'Add Task',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -38,7 +39,7 @@ class AddTaskScreen extends StatelessWidget {
               },
             ),
             ElevatedButton(
-              child: Text(
+              child: const Text(
                 'Add',
                 style: TextStyle(
                   color: Colors.white,

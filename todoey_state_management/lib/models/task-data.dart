@@ -3,7 +3,7 @@ import 'package:todoey_state_management/models/task.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
-  List<Task> _tasks = [
+  final List<Task> _tasks = [
     Task(name: 'Buy milk'),
     Task(name: 'Buy eggs'),
     Task(name: 'Buy bread'),

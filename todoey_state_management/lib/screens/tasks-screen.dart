@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey_state_management/models/task-data.dart';
-import 'package:todoey_state_management/models/task.dart';
 import 'package:todoey_state_management/screens/add-task-screen.dart';
 import 'package:todoey_state_management/widgets/tasks-list.dart';
 
 class TasksScreen extends StatelessWidget {
+  const TasksScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => {
           showModalBottomSheet(
             context: context,
@@ -32,7 +33,7 @@ class TasksScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 60.0,
               right: 30.0,
               bottom: 30.0,
@@ -41,7 +42,7 @@ class TasksScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                CircleAvatar(
+                const CircleAvatar(
                   child: Icon(
                     Icons.list,
                     size: 30.0,
@@ -50,10 +51,10 @@ class TasksScreen extends StatelessWidget {
                   backgroundColor: Colors.white,
                   radius: 30.0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
-                Text(
+                const Text(
                   'Todoey',
                   style: TextStyle(
                     color: Colors.white,
@@ -63,7 +64,7 @@ class TasksScreen extends StatelessWidget {
                 ),
                 Text(
                   '${Provider.of<TaskData>(context).taskCount} Tasks',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
                   ),
@@ -73,15 +74,15 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(),
+              child: const TasksList(),
             ),
           ),
         ],
