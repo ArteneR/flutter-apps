@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rummy_score/data/games-data.dart';
 import 'package:rummy_score/services/utils.dart';
 import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
@@ -29,9 +31,11 @@ class GamesHistoryScreen extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(20.0),
             child: ButtonPrimaryDefault(
-              text: 'View Game',
+              text: 'Start a new game',
               onPressed: () {
-                Utils.goToScreen(context, Routes.viewGameScreen);
+                Provider.of<GamesData>(context, listen: false)
+                    .addGame(name: 'New Game');
+                Utils.goToScreen(context, Routes.gameSetupScreen);
               },
             ),
           ),
