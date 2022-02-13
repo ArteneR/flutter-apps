@@ -2,28 +2,30 @@ import 'player.dart';
 import 'game-round.dart';
 
 class Game {
-  int id = 1;
-  String name;
+  int _id = 1;
+  String _name = '';
   DateTime date = DateTime.now();
   List<Player> _players = [];
-  List<GameRound> rounds = [];
+  List<GameRound> _rounds = [];
 
-  Game({required this.name});
-
-  List<Player> get players {
-    return _players;
-  }
+  Game({required name}) : _name = name;
 
   @override
   String toString() {
-    return '{id: $id, name: $name, playersCount: ${players.length}}';
+    return '{id: $_id, name: $_name, playersCount: ${_players.length}}';
   }
 
+  List<Player> get players => _players;
+  int get id => _id;
+  String get name => _name;
+
+  set name(String name) => _name = name;
+
   void addPlayer(Player player) {
-    players.add(player);
+    _players.add(player);
   }
 
   void removePlayer(Player player) {
-    players.remove(player);
+    _players.remove(player);
   }
 }
