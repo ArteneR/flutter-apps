@@ -4,7 +4,9 @@ import 'package:rummy_score/models/player.dart';
 
 class Data extends ChangeNotifier {
   late List<Game> _games;
-  late List<Player> _players = [];
+  late List<Player> _players = [
+    Player(name: 'Mihai'),
+  ];
 
   List<Game> get games {
     return _games;
@@ -12,6 +14,10 @@ class Data extends ChangeNotifier {
 
   List<Player> get players {
     return _players;
+  }
+
+  int get playersCount {
+    return _players.length;
   }
 
   Game? getGame(id) {
@@ -34,6 +40,11 @@ class Data extends ChangeNotifier {
     print('Added player: $name');
     final player = Player(name: name);
     _players.add(player);
+    notifyListeners();
+  }
+
+  void removePlayer(Player player) {
+    _players.remove(player);
     notifyListeners();
   }
 }

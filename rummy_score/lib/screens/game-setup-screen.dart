@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rummy_score/models/game.dart';
-import 'package:rummy_score/routes/route-arguments.dart';
 import 'package:rummy_score/models/data.dart';
-import 'package:rummy_score/screens/add-player-screen.dart';
-import 'package:rummy_score/services/utils.dart';
-import 'package:rummy_score/routes/routes.dart';
 import 'package:rummy_score/widgets/button-primary-default.dart';
 import 'package:rummy_score/widgets/content-box.dart';
-import 'package:rummy_score/widgets/player-input.dart';
+import 'package:rummy_score/widgets/game-players-setup.dart';
 
 class GameSetupScreen extends StatefulWidget {
   const GameSetupScreen({Key? key}) : super(key: key);
@@ -20,7 +15,6 @@ class GameSetupScreen extends StatefulWidget {
 class _GameSetupScreenState extends State<GameSetupScreen> {
   final PLAYERS_LIMIT = 4;
   final PLAYERS_MINIMUM = 2;
-  List<PlayerInput> players = [];
 
   TextEditingController _gameName = TextEditingController(
     text: 'Game #1',
@@ -64,47 +58,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
                     height: 40.0,
                   ),
                   const Text('Players'),
-                  Visibility(
-                    visible: players.isNotEmpty,
-                    child: Column(
-                      children: players,
-                    ),
-                  ),
-                  Visibility(
-                    visible: players.isEmpty,
-                    child: const Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 40.0,
-                          horizontal: 20.0,
-                        ),
-                        child: Text(
-                          'No players have been added yet!',
-                          style: TextStyle(
-                            color: Color(0xFF9D9D9D),
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: ButtonPrimaryDefault(
-                      text: 'Add Player',
-                      onPressed: () => showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (context) => SingleChildScrollView(
-                          child: Container(
-                            padding: EdgeInsets.only(
-                              bottom: MediaQuery.of(context).viewInsets.bottom,
-                            ),
-                            child: AddPlayerScreen(),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  const GamePlayersSetup(),
                 ],
               ),
             ),
@@ -116,7 +70,8 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
               builder: (context, value, child) {
                 return ButtonPrimaryDefault(
                   text: 'Start Game',
-                  onPressed: (players.length >= PLAYERS_MINIMUM) &&
+                  onPressed: (Provider.of<Data>(context).playersCount >=
+                              PLAYERS_MINIMUM) &&
                           _gameName.text.isNotEmpty
                       ? () => startGame()
                       : null,
@@ -127,24 +82,6 @@ class _GameSetupScreenState extends State<GameSetupScreen> {
         ],
       ),
     );
-  }
-
-  void addPlayer() {
-    if (players.length < PLAYERS_LIMIT) {}
-
-    setState(() {
-      if (players.length < PLAYERS_LIMIT) {
-        players.add(
-          PlayerInput(onDelete: deletePlayer),
-        );
-      }
-    });
-  }
-
-  void deletePlayer(player) {
-    setState(() {
-      players.removeAt(players.indexOf(player));
-    });
   }
 
   void startGame() async {
