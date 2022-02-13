@@ -17,7 +17,7 @@ class ScoresList extends StatelessWidget {
 
             return ScoreInput(
               playerName: player.name,
-              selectCallback: () {
+              onChangeCallback: () {
                 // TODO
               },
             );
