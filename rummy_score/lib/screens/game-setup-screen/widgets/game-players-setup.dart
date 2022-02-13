@@ -26,7 +26,10 @@ class GamePlayersSetup extends StatelessWidget {
         Center(
           child: ButtonPrimaryDefault(
             text: 'Add Player',
-            onPressed: (Provider.of<PlayersData>(context).playersCount <
+            onPressed: (Provider.of<GamesData>(context)
+                        .currentGame!
+                        .players
+                        .length <
                     kPlayersLimit)
                 ? () => showModalBottomSheet(
                       context: context,

@@ -22,60 +22,60 @@ class AddPlayerScreen extends StatelessWidget {
             topRight: Radius.circular(10.0),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const Text('Add Player'),
-            const SizedBox(
-              height: 30.0,
-            ),
-            const Text('New player name'),
-            TextField(
-              decoration: const InputDecoration(
-                filled: true,
-                fillColor: Color(0xFFF7F7F7),
-                hintText: "Enter player name",
-              ),
-              onChanged: (newPlayerName) {
-                playerName = newPlayerName;
-              },
-            ),
-            ButtonPrimaryDefault(
-              text: 'Add Player',
-              onPressed: () {
-                Provider.of<PlayersData>(context, listen: false)
-                    .addPlayer(playerName);
-                Player? addedPlayer =
-                    Provider.of<PlayersData>(context, listen: false)
-                        .getLatestPlayer();
-                Provider.of<GamesData>(context, listen: false)
-                    .addPlayer(addedPlayer);
-                print(
-                    Provider.of<GamesData>(context, listen: false).currentGame);
-                Navigator.pop(context);
-              },
-            ),
-            Visibility(
-              visible: Provider.of<GamesData>(context)
-                  .currentGame!
-                  .players
-                  .isNotEmpty,
-              // TODO: visible -> AND not one of the already added players to the game
-              child: Column(
-                children: const <Widget>[
-                  SizedBox(
-                    height: 30.0,
+        child: Consumer2<PlayersData, GamesData>(
+          builder: (context, playersData, gamesData, child) {
+            final gamePlayers = gamesData.currentGame!.players;
+            final availablePlayers = playersData.players
+                .where((player) => !gamePlayers.contains(player))
+                .toList();
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const Text('Add Player'),
+                const SizedBox(
+                  height: 30.0,
+                ),
+                const Text('New player name'),
+                TextField(
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFFF7F7F7),
+                    hintText: "Enter player name",
                   ),
-                  Text('or'),
-                  SizedBox(
-                    height: 30.0,
+                  onChanged: (newPlayerName) {
+                    playerName = newPlayerName;
+                  },
+                ),
+                ButtonPrimaryDefault(
+                  text: 'Add Player',
+                  onPressed: () {
+                    playersData.addPlayer(playerName);
+                    Player? addedPlayer = playersData.getLatestPlayer();
+                    gamesData.addPlayer(addedPlayer);
+                    print(gamesData.currentGame);
+                    Navigator.pop(context);
+                  },
+                ),
+                Visibility(
+                  visible: availablePlayers.isNotEmpty,
+                  child: Column(
+                    children: const <Widget>[
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Text('or'),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Text('Choose an existing player'),
+                      ExistingPlayersList(),
+                    ],
                   ),
-                  Text('Choose an existing player'),
-                  ExistingPlayersList(),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

@@ -9,21 +9,23 @@ class PlayersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PlayersData>(
-      builder: (context, playersData, child) {
+    return Consumer<GamesData>(
+      builder: (context, gamesData, child) {
+        final gamePlayers = gamesData.currentGame!.players;
+
         return ListView.builder(
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            final player = playersData.players[index];
+            final player = gamePlayers[index];
 
             return PlayerTile(
               playerName: player.name,
               deleteCallback: () {
-                playersData.removePlayer(player);
+                gamesData.removePlayer(player);
               },
             );
           },
-          itemCount: playersData.playersCount,
+          itemCount: gamePlayers.length,
         );
       },
     );

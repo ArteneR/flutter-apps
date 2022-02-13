@@ -22,4 +22,8 @@ class Game {
   void addPlayer(Player player) {
     players.add(player);
   }
+
+  void removePlayer(Player player) {
+    players.remove(player);
+  }
 }

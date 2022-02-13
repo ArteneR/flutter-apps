@@ -34,4 +34,12 @@ class GamesData extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void removePlayer(Player? player) {
+    if (player != null) {
+      final index = _games.indexWhere((game) => game.id == currentGame?.id);
+      _games[index].removePlayer(player);
+      notifyListeners();
+    }
+  }
 }
