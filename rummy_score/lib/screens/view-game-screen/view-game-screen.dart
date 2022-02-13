@@ -31,23 +31,26 @@ class ViewGameScreen extends StatelessWidget {
               const SizedBox(
                 height: 30.0,
               ),
-              Expanded(
-                child: ContentBox(
-                  child: Column(
-                    children: <Widget>[
-                      const Text('View Game Screen'),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(20.0),
+              const Text('Round #1'),
+              ContentBox(
                 child: ButtonPrimaryDefault(
-                  text: 'Submit Score',
+                  text: 'Submit a new score',
                   onPressed: () {
                     Utils.goToScreen(context, Routes.submitScoreScreen);
                   },
                 ),
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              const Text('Score card'),
+              const Expanded(
+                child: ContentBox(
+                  child: Text('Score card goes here'),
+                ),
+              ),
+              const SizedBox(
+                height: 30.0,
               ),
             ],
           ),
